@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcamì Subscription Section</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .subscription-section {
+            /* background-image: url('URL_GOES_HERE');   URL of the background image - ADD LATER */
+            /* background-size: cover;   Cover the entire area - ADD LATER */
+            /* background-position: center;   Center the image - ADD LATER */
+            color: #333;
+            /* Default text color */
+            padding: 50px;
+            text-align: left;
+            /* Align text to the left */
+            position: relative;
+            /* For overlay */
+            background-color: #f9f9f9;
+            /* Added a light background color */
+        }
+
+        .subscription-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-color: rgba(255, 255, 255, 0.8);   White with 80% opacity - ADD LATER */
+            z-index: 0;
+            /* Behind the content */
+        }
+
+        .subscription-content {
+            position: relative;
+            z-index: 1;
+            /* Above the overlay */
+            padding: 20px;
+        }
+
+        .subscription-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .subscription-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .perks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 3 columns */
+            gap: 10px;
+            margin-bottom: 20px;
+            max-width: 400px;
+            /* Limit the width of the container */
+        }
+
+        .perk {
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: #D6D5D5;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            text-align: center;
+            /* Center text in the mini-tabs */
+        }
+
+        .subscribe-button {
+            background: linear-gradient(93.63deg, #CAA648 -0.61%, #CAA648 10.09%, #D5B147 25.19%, #E4C267 46.69%, #E2C065 78.94%, #DBB95E 90.77%, #D0AE52 98.29%, #C09F41 104.74%, #BB9A3C 106.89%);
+            color: black;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 1.1em;
+            font-weight: bold;
+            /* Make the font bold */
+        }
+
+   
+
+        .subscription-text {
+            position: relative;
+            z-index: 1;
+            /* Ensure text is above the background */
+        }
+
+        .subscription-text h2 {
+            font-size: 2em;
+            color: #333;
+            /* Adjust as needed */
+            margin-bottom: 10px;
+        }
+
+        .subscription-text p {
+            font-size: 1em;
+            color: #666;
+            /* Adjust as needed */
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .subscription-top {
+            font-size: 0.8em;
+
+            color: #CAA648;
+
+            position: absolute;
+            top: 30px;
+
+            left: 7%;
+
+            z-index: 1;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="subscription-section">
+        <span class="subscription-top">Subscription</span>
+        <div class="subscription-content">
+            <div class="subscription-text">
+                <h2>Subscribe & save 20% + free <br>frother and bottle and spoon</h2>
+            </div>
+            <div class="perks">
+                <div class="perk">LASER FOCUS</div>
+                <div class="perk">SUSTAINED ENERGY</div>
+                <div class="perk">CLEAR MIND</div>
+                <div class="perk">IMPROVED MOOD</div>
+                <div class="perk">NO CAFFEINE</div>
+                <div class="perk">CALM BALANCE</div>
+            </div>
+            <a href="#" class="subscribe-button">Subscribe Now </a>
+        </div>
+    </section>
+</body>
+
+</html>

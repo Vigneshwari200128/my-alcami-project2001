@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Testimonials Slider</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f7f5;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .testimonial-section {
+      max-width: 1200px;
+      margin: auto;
+      position: relative;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h2 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .header p {
+      color: #444;
+      margin: 5px 0 0 0;
+      font-size: 14px;
+    }
+
+    .arrow {
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.arrow.active {
+  background: #000;
+  color: #fff;
+  opacity: 1;
+}
+
+.arrow:hover {
+  background: #000;
+  color: #fff;
+  opacity: 1;
+}
+
+    .testimonial-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding-bottom: 10px;
+      scrollbar-width: none;
+    }
+
+    .testimonial-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial-card {
+      flex: 0 0 300px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      scroll-snap-align: start;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .stars {
+      color: green;
+      margin-bottom: 10px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      background: #ddd;
+    }
+
+    .slider-nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .dots {
+      display: inline-block;
+      margin: 0 5px;
+      width: 10px;
+      height: 10px;
+      background: #aaa;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dots.active {
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+
+<section class="testimonial-section">
+  <div class="header">
+    <div>
+      <h2>What our customers are saying</h2>
+      <p>Real people, real reviews.</p>
+    </div>
+    <div class="arrows">
+      <button class="arrow left">←</button>
+      <button class="arrow right">→</button>
+    </div>
+  </div>
+
+  <div class="testimonial-container" id="testimonialContainer">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."</p>
+      <div class="profile">
+        <img src="" alt="Profile">
+        <div>
+          <strong>Name Surname</strong><br>
+          Position, Company name
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."</p>
+      <div class="profile">
+        <img src="" alt="Profile">
+        <div>
+          <strong>Name Surname</strong><br>
+          Position, Company name
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."</p>
+      <div class="profile">
+        <img src="" alt="Profile">
+        <div>
+          <strong>Name Surname</strong><br>
+          Position, Company name
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."</p>
+      <div class="profile">
+        <img src="" alt="Profile">
+        <div>
+          <strong>Name Surname</strong><br>
+          Position, Company name
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+        <div class="stars">★★★★</div>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."</p>
+        <div class="profile">
+          <img src="" alt="Profile">
+          <div>
+            <strong>Name Surname</strong><br>
+            Position, Company name
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★</div>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."</p>
+        <div class="profile">
+          <img src="" alt="Profile">
+          <div>
+            <strong>Name Surname</strong><br>
+            Position, Company name
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★</div>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."</p>
+        <div class="profile">
+          <img src="" alt="Profile">
+          <div>
+            <strong>Name Surname</strong><br>
+            Position, Company name
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="slider-nav" id="dots"></div>
+</section>
+
+<script>
+  const container = document.getElementById('testimonialContainer');
+  const dotsContainer = document.getElementById('dots');
+  const leftArrow = document.querySelector('.arrow.left');
+  const rightArrow = document.querySelector('.arrow.right');
+  const cards = document.querySelectorAll('.testimonial-card');
+
+  // Create dots
+  cards.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dots');
+    if (index === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.dots');
+
+  function updateDots() {
+    const index = Math.round(container.scrollLeft / (cards[0].offsetWidth + 20));
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+  }
+
+  container.addEventListener('scroll', updateDots);
+
+  leftArrow.addEventListener('click', () => {
+    container.scrollBy({ left: -(cards[0].offsetWidth + 20), behavior: 'smooth' });
+  });
+
+  rightArrow.addEventListener('click', () => {
+    container.scrollBy({ left: (cards[0].offsetWidth + 20), behavior: 'smooth' });
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      container.scrollTo({ left: index * (cards[0].offsetWidth + 20), behavior: 'smooth' });
+    });
+    const arrows = document.querySelectorAll('.arrow');
+
+arrows.forEach(arrow => {
+  arrow.addEventListener('mouseenter', () => {
+    arrows.forEach(a => a.classList.remove('active'));
+    arrow.classList.add('active');
+  });
+  arrow.addEventListener('mouseleave', () => {
+    arrow.classList.remove('active');
+  });
+});
+
+
+
+  });
+</script>
+
+</body>
+</html>

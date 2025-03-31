@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Percentage Counter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .percentage-section {
+    background-image: url(./assets/images/background_image.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .percentage-content {
+      display: flex;
+      gap: 50px;
+      z-index: 2;
+    }
+    .percentage-box {
+      text-align: center;
+      color: white;
+      max-width: 200px;
+    }
+    .percentage {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 13px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="percentage-section">
+    <div class="overlay"></div>
+    <div class="percentage-content">
+      <div class="percentage-box">
+        <div class="percentage" data-target="84">0%</div>
+        <div class="description">Reported increased energy throughout their day</div>
+      </div>
+      <div class="percentage-box">
+        <div class="percentage" data-target="78">0%</div>
+        <div class="description">Reported feeling more focused</div>
+      </div>
+      <div class="percentage-box">
+        <div class="percentage" data-target="89">0%</div>
+        <div class="description">Reported a sense of calmness & steady mood</div>
+      </div>
+      <div class="percentage-box">
+        <div class="percentage" data-target="90">0%</div>
+        <div class="description">Reported overall increased wellness in gut, skin, hair, and physical health</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const counters = document.querySelectorAll('.percentage');
+    let animated = false;
+
+    function animateCounters() {
+      const section = document.querySelector('.percentage-section');
+      const sectionTop = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (!animated && sectionTop < windowHeight - 100) {
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          let count = 0;
+          const duration = 1000; // 1 second
+          const increment = target / (duration / 20);
+
+          const update = () => {
+            count += increment;
+            if (count < target) {
+              counter.textContent = `${Math.ceil(count)}%`;
+              setTimeout(update, 20);
+            } else {
+              counter.textContent = `${target}%`;
+            }
+          };
+          update();
+        });
+        animated = true;
+      }
+    }
+
+   window.addEventListener('scroll', animateCounters);
+//window.addEventListener('load', animateCounters);
+
+  </script>
+
+</body>
+</html>

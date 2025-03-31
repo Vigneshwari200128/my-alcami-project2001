@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ Accordion</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .faq-section {
+      display: flex;
+      gap: 50px;
+      max-width: 1200px;
+      margin: auto;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .faq-left {
+      flex: 1;
+    }
+
+    .faq-left h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .faq-left p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .contact-btn {
+        background: linear-gradient(
+      92.57deg,
+      #caa648 -34.45%,
+      #caa648 -12.71%,
+      #d5b147 4.32%,
+      #e4c267 36.63%,
+      #e2c065 85.1%,
+      #dbb95e 102.87%,
+      #d0ae52 114.18%,
+      #c09f41 119.07%,
+      #bb9a3c 127.1%
+    );
+      border: none;
+      padding: 12px 24px;
+      border-radius: 20px;
+      color: #000;
+      cursor: pointer;
+      font-size: 18px;
+      width: 200px;
+    }
+
+    .faq-right {
+      flex: 2;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .accordion-header {
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .accordion-header::after {
+      content: '+';
+      position: absolute;
+      right: 15px;
+      font-size: 20px;
+    }
+
+    .accordion-header.active::after {
+      content: '-';
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 15px;
+      color: #555;
+    }
+
+    .accordion-content.open {
+      padding: 15px;
+    }
+
+    .see-all {
+      display: inline-block;
+      margin-top: 20px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="faq-section">
+  <div class="faq-left">
+    <h2>F.A.Qs</h2>
+    <p>If you have any question that isn’t answered in our FAQs, we’d love to hear from you!</p>
+    <button class="contact-btn">Get in touch →</button>
+  </div>
+
+  <div class="faq-right">
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">If I subscribe can I cancel anytime?</button>
+        <div class="accordion-content">Yes, you can cancel anytime from your account settings. No strings attached!</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">Can I take this at night?</button>
+        <div class="accordion-content">Absolutely! Our product is safe to use at night.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">Where are your ingredients sourced from?</button>
+        <div class="accordion-content">We source all ingredients from trusted organic farms worldwide.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">Will this get me high?</button>
+        <div class="accordion-content">Nope! Our product is 100% non-psychoactive.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">Are you using fruiting bodies for your mushrooms?</button>
+        <div class="accordion-content">Yes, only premium fruiting bodies, no fillers or mycelium on grain.</div>
+      </div>
+    </div>
+
+    <a href="#" class="see-all">See All FAQ’s →</a>
+  </div>
+</section>
+
+<script>
+  const headers = document.querySelectorAll('.accordion-header');
+
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const openItem = document.querySelector('.accordion-header.active');
+      if (openItem && openItem !== header) {
+        openItem.classList.remove('active');
+        openItem.nextElementSibling.style.maxHeight = null;
+        openItem.nextElementSibling.classList.remove('open');
+      }
+
+      header.classList.toggle('active');
+      const content = header.nextElementSibling;
+      if (header.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.classList.add('open');
+      } else {
+        content.style.maxHeight = null;
+        content.classList.remove('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

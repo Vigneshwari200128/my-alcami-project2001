@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcamì Section</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .morning-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Morning Ritual Section */
+        .morning-ritual-section {
+            display: flex;
+            gap: 50px;
+            /* Space between text and video */
+            align-items: center;
+        }
+
+        .morning-ritual-text {
+            flex: 1;
+        }
+
+        .morning-ritual-text h2 {
+            font-size: 2.2em;
+            /* Increased font size */
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            /* Adjust line height for better readability */
+        }
+
+        .morning-ritual-text p {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .numbered-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .numbered-list li {
+            counter-increment: list-item;
+            /*Increment counter for each list item*/
+            margin-bottom: 15px;
+            padding-left: 45px;
+            /* Increased padding for bigger numbers */
+            position: relative;
+        }
+
+        .numbered-list li:before {
+            content: counter(list-item);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2.5em;
+            /* Increased font size for numbers */
+            color: #D3D3D3;
+            /* Light grey color */
+            font-weight: normal;
+            line-height: 1;
+            /* Adjust line height for vertical alignment */
+        }
+
+        .numbered-list h3 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .morning-ritual-video {
+            flex: 1;
+            position: relative;
+            /* To contain the play button */
+        }
+
+        .morning-ritual-video img {
+            width: 100%;
+            /* Make the image fill the container */
+            height: auto;
+            display: block;
+            /* Remove any default image spacing */
+            border-radius: 15px;
+            /* Added border radius */
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            /* Adjust size as needed */
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .play-button:after {
+            content: "";
+            border-style: solid;
+            border-width: 15px 0 15px 25px;
+            /* Creates the play icon */
+            border-color: transparent transparent transparent white;
+        }
+
+        .morning-ritual-section .button {
+            background: linear-gradient(93.63deg, #CAA648 -0.61%, #CAA648 10.09%, #D5B147 25.19%, #E4C267 46.69%, #E2C065 78.94%, #DBB95E 90.77%, #D0AE52 98.29%, #C09F41 104.74%, #BB9A3C 106.89%);
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Initialize counter for the numbered list */
+        ol {
+            counter-reset: list-item;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Morning Ritual Section -->
+        <section class="morning-ritual-section">
+            <div class="morning-ritual-text">
+                <h2>Your morning ritual, <br> made to awaken your mind.</h2>
+                <p>Transform your mornings with a simple, potent, and powerful ritual that fuels your day.</p>
+
+                <ol class="numbered-list">
+                    <li>
+                        <h3>Prep your favorite drink</h3>
+                        <p>Start your morning with your favorite beverage, whether it's a nutrient-packed smoothie or a
+                            warm cup of tea.</p>
+                    </li>
+                    <li>
+                        <h3>Take a scoop</h3>
+                        <p>Simply add one potent scoop packed with x10 the potency to boost energy, enhance clarity, and
+                            support wellness all day.</p>
+                    </li>
+                    <li>
+                        <h3>Customize and mix</h3>
+                        <p>Personalize your morning drink. Stir well for a perfectly blended, nutrient-rich beverage
+                            that awakens your mind and prepares you for the day.</p>
+                    </li>
+                </ol>
+
+                <a href="#" class="button">See how people are using Alcamì -></a>
+            </div>
+
+            <!-- Video Section -->
+            <div class="morning-ritual-video">
+                <img src="./assets/images/founder_image.png" alt="Man with Alcamì" width="530" height="600">
+                <div class="play-button"></div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

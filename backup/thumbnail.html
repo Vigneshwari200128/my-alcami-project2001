@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcami Elements</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Product Gallery (Left Side) */
+.product-gallery {
+    flex: 1;
+    min-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.main-image-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ingredient indicators styling */
+.ingredient {
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+.ingredient-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #444;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.ingredient-info {
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+.ingredient-name {
+    font-weight: bold;
+}
+
+.ingredient-benefit {
+    color: #666;
+}
+
+/* Position the ingredients around the product */
+.gynostemma {
+    top: 25%;
+    left: 18%;
+}
+
+.polygala {
+    top: 35%;
+    left: 10%;
+}
+
+/* Gallery navigation */
+.gallery-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.nav-arrow {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dots-container {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d0d0d0;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+/* Thumbnails */
+.thumbnails-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.thumbnail {
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.thumbnail.active {
+    border-color: #b88235;
+}
+
+/* Product Info (Right Side) */
+.product-info {
+    flex: 1;
+    min-width: 400px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.stars {
+    color: #b88235;
+    letter-spacing: 2px;
+    margin-right: 8px;
+}
+
+.reviews {
+    color: #666;
+    font-size: 14px;
+}
+
+.description {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+/* Flavor selection */
+.flavor-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.flavor-options {
+    display: flex;
+    gap: 20px;
+}
+
+.flavor-option {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.radio-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+}
+
+.flavor-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.flavor-option input:checked ~ .radio-checkmark {
+    border-color: #b88235;
+}
+
+.flavor-option input:checked ~ .radio-checkmark:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #b88235;
+}
+
+.flavor-img {
+    margin: 10px 0;
+    position: relative;
+}
+
+.flavor-img img {
+    width: 100%;
+    height: auto;
+}
+
+.best-seller {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #b88235;
+    color: white;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* Purchase options */
+.most-popular {
+    background-color: #b88235;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 30px;
+    border-radius: 4px 4px 0 0;
+}
+
+.purchase-options {
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    overflow: hidden;
+}
+
+.purchase-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+}
+
+.option-details {
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.option-name {
+    font-weight: 500;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.current-price {
+    font-weight: bold;
+}
+
+.original-price {
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* Updated "What's Included" section */
+.whats-included {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.whats-included h4 {
+    margin-bottom: 15px;
+}
+
+.whats-included .included-items {
+    text-align: center; /* Center the image horizontally */
+    margin-bottom: 15px;
+}
+
+.whats-included .included-items img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block; /* Allows the image to be centered */
+}
+
+.benefits {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.benefits li {
+    padding: 5px 0 5px 25px;
+    position: relative;
+}
+
+.benefits li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #3a3;
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 20px;
+    background-color: #5b7a4f;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #4c6942;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-section">
+            <!-- Left Column - Product Gallery -->
+            <div class="product-gallery">
+                <!-- Main Product Image -->
+                <div class="main-image-container">
+                    <img id="main-image" src="./assets/thumbnails/main_img.png" alt="Alcami Elements">
+                    
+                    <!-- Ingredient indicators around the product -->
+                
+                
+                    
+                    <!-- Similar structure for other ingredients: Reishi, Shilajit, Lion's Mane, etc. -->
+                </div>
+                
+                <!-- Navigation Controls -->
+                <div class="gallery-navigation">
+                    <button id="prev-arrow" class="nav-arrow">&#10094;</button>
+                    <div class="dots-container">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                        <span class="dot" data-index="3"></span>
+                    </div>
+                    <button id="next-arrow" class="nav-arrow">&#10095;</button>
+                </div>
+                
+                <!-- Thumbnails -->
+                <div class="thumbnails-container">
+                    <div class="thumbnail active">
+                        <img src="./assets/thumbnails/Group 1000003951.png" alt="Thumbnail 1" data-index="0">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="./assets/thumbnails/Group 1000003953.png" alt="Thumbnail 2" data-index="1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="./assets/thumbnails/Group 1000003954.png" alt="Thumbnail 3" data-index="2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="./assets/thumbnails/Group 1000003955.png" alt="Thumbnail 4" data-index="3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="./assets/thumbnails/Group 1000003956.png" alt="Thumbnail 4" data-index="3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="./assets/thumbnails/Group 1000004276.png" alt="Thumbnail 4" data-index="3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="./assets/thumbnails/Rectangle 6684.png" alt="Thumbnail 4" data-index="3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="./assets/thumbnails/Rectangle 6685.png" alt="Thumbnail 4" data-index="3">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Product Info and Options -->
+            <div class="product-info">
+                <h1>Alcami Elements</h1>
+                
+                <div class="rating">
+                    <div class="stars">★★★★★</div>
+                    <span class="reviews">4.7 (999+ reviews)</span>
+                </div>
+                
+                <p class="description">
+                    Discover the ancient wisdom supported by modern science, all within the synergy 
+                    of Alcami Elements. Designed for those who aspire to elevate every facet of life 
+                    with awareness and intention.
+                </p>
+                
+                <!-- Flavor Selection -->
+                <div class="flavor-section">
+                    <h3>Choose a flavor</h3>
+                    <div class="flavor-options">
+                        <label class="flavor-option">
+                            <input type="radio" name="flavor" value="original" checked>
+                            <span class="radio-checkmark"></span>
+                            <div class="flavor-img">
+                                <img src="./assets/thumbnails/rename.png" alt="Original">
+                                <span class="best-seller">BEST SELLER</span>
+                            </div>
+                        </label>
+                        
+                        <label class="flavor-option">
+                            <input type="radio" name="flavor" value="matcha">
+                            <span class="radio-checkmark"></span>
+                            <div class="flavor-img">
+                                <img src="./assets/thumbnails/green.png" alt="Matcha" width="150px" height="178px">
+                            </div>
+                        </label>
+                        
+                        <label class="flavor-option">
+                            <input type="radio" name="flavor" value="cacao">
+                            <span class="radio-checkmark"></span>
+                            <div class="flavor-img">
+                                <img src="./assets/thumbnails/cocoa.png" alt="Cacao">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Purchase Options -->
+                <div class="most-popular">Most Popular</div>
+                
+                <div class="purchase-options">
+                    <label class="purchase-option">
+                        <input type="radio" name="purchase-type" value="single" checked>
+                        <span class="radio-checkmark"></span>
+                        <div class="option-details">
+                            <span class="option-name">Single Kit Subscription</span>
+                            <div class="price">
+                                <span class="current-price">$37 USD</span>
+                                <span class="original-price">$46</span>
+                            </div>
+                        </div>
+                        
+                        <div class="whats-included">
+                            <h4>What's Included:</h4>
+                            <div class="included-items">
+                                <img src="" alt="Single Kit Items">
+                            </div>
+                            
+                            <ul class="benefits">
+                                <li>30 Servings Shipped Monthly</li>
+                                <li>Free Golden Kit Gold Bottle + Spoon ($42 Value)</li>
+                                <li>Free 60 Days Supply Of Alcami Shilajit ($78 Value)</li>
+                                <li>50% OFF Shipping (Over $7-$10 in Savings)</li>
+                                <li>Pause Or Cancel Anytime After 3 Months Minimum</li>
+                                <li>90 Day Money Back Guarantee*</li>
+                            </ul>
+                        </div>
+                    </label>
+                    
+                    <label class="purchase-option">
+                        <input type="radio" name="purchase-type" value="double">
+                        <span class="radio-checkmark"></span>
+                        <div class="option-details">
+                            <span class="option-name">Double Kit Subscription</span>
+                            <div class="price">
+                                <span class="current-price">$68 USD</span>
+                                <span class="original-price">$83</span>
+                            </div>
+                        </div>
+                    </label>
+                    
+                    <label class="purchase-option">
+                        <input type="radio" name="purchase-type" value="try-once">
+                        <span class="radio-checkmark"></span>
+                        <div class="option-details">
+                            <span class="option-name">Try Once</span>
+                            <div class="price">
+                                <span class="current-price">$46 USD</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                
+                <a href="#" id="add-to-cart" class="add-to-cart-btn">Add to Cart →</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Gallery images (would be replaced with actual image paths)
+    const images = [
+'./assets/thumbnails/Group 1000003951.png',
+'./assets/thumbnails/Group 1000003953.png',
+'./assets/thumbnails/Group 1000003954.png',
+'./assets/thumbnails/Group 1000003955.png',
+'./assets/thumbnails/Group 1000003956.png',
+'./assets/thumbnails/Group 1000004276.png',
+'./assets/thumbnails/Rectangle 6684.png',
+'./assets/thumbnails/Rectangle 6685.png'
+    ];
+    
+    // DOM elements
+    const mainImage = document.getElementById('main-image');
+    const prevArrow = document.getElementById('prev-arrow');
+    const nextArrow = document.getElementById('next-arrow');
+    const dots = document.querySelectorAll('.dot');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    
+    // Product options
+    const flavorRadios = document.querySelectorAll('input[name="flavor"]');
+    const purchaseTypeRadios = document.querySelectorAll('input[name="purchase-type"]');
+    const addToCartBtn = document.getElementById('add-to-cart');
+    
+    let currentImageIndex = 0;
+    
+    // Update main image and active indicators
+    function updateMainImage(index) {
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+        
+        // Update main image src
+        mainImage.src = images[index];
+        currentImageIndex = index;
+        
+        // Update active dot
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        
+        // Update active thumbnail
+        thumbnails.forEach((thumbnail, i) => {
+            thumbnail.classList.toggle('active', i === index);
+        });
+    }
+    
+    // Gallery navigation
+    prevArrow.addEventListener('click', () => {
+        updateMainImage(currentImageIndex - 1);
+    });
+    
+    nextArrow.addEventListener('click', () => {
+        updateMainImage(currentImageIndex + 1);
+    });
+    
+    // Dot navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            updateMainImage(index);
+        });
+    });
+    
+    // Thumbnail navigation
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', () => {
+            updateMainImage(index);
+        });
+    });
+    
+    // Add to Cart functionality
+    function updateAddToCartLink() {
+        // Get selected flavor
+        let flavor = '';
+        flavorRadios.forEach(radio => {
+            if (radio.checked) flavor = radio.value;
+        });
+        
+        // Get selected purchase type
+        let purchaseType = '';
+        purchaseTypeRadios.forEach(radio => {
+            if (radio.checked) purchaseType = radio.value;
+        });
+        
+        // Create different URLs based on selections
+        // Here we're creating 9 possible combinations (3 flavors x 3 purchase types)
+        let cartUrl = 'https://example.com/cart/add?';
+        
+        if (flavor === 'original' && purchaseType === 'single') {
+            cartUrl += 'product=original-single-kit';
+        } else if (flavor === 'original' && purchaseType === 'double') {
+            cartUrl += 'product=original-double-kit';
+        } else if (flavor === 'original' && purchaseType === 'try-once') {
+            cartUrl += 'product=original-once';
+        } else if (flavor === 'matcha' && purchaseType === 'single') {
+            cartUrl += 'product=matcha-single-kit';
+        } else if (flavor === 'matcha' && purchaseType === 'double') {
+            cartUrl += 'product=matcha-double-kit';
+        } else if (flavor === 'matcha' && purchaseType === 'try-once') {
+            cartUrl += 'product=matcha-once';
+        } else if (flavor === 'cacao' && purchaseType === 'single') {
+            cartUrl += 'product=cacao-single-kit';
+        } else if (flavor === 'cacao' && purchaseType === 'double') {
+            cartUrl += 'product=cacao-double-kit';
+        } else if (flavor === 'cacao' && purchaseType === 'try-once') {
+            cartUrl += 'product=cacao-once';
+        }
+        
+        // Update the Add to Cart button's href
+        addToCartBtn.href = cartUrl;
+        console.log('Cart URL updated to:', cartUrl);
+    }
+    
+    // Listen for radio button changes
+    flavorRadios.forEach(radio => {
+        radio.addEventListener('change', updateAddToCartLink);
+    });
+    
+    purchaseTypeRadios.forEach(radio => {
+        radio.addEventListener('change', updateAddToCartLink);
+    });
+    
+    // Initialize cart link with default selections
+    updateAddToCartLink();
+});
+
+    </script>
+</body>
+</html>

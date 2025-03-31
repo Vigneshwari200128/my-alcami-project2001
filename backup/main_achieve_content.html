@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 20px;
+            color: #333;
+        }
+
+    
+
+        h1 {
+            font-size: 40px;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .detail {
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            font-weight: 650;
+            font-size: 65px;
+            line-height: 100%;
+            letter-spacing: 0px;
+            vertical-align: middle;
+            margin-bottom: 5px;
+            background: linear-gradient(93.63deg, #CAA648 -0.61%, #CAA648 10.09%, #D5B147 25.19%, #E4C267 46.69%, #E2C065 78.94%, #DBB95E 90.77%, #D0AE52 98.29%, #C09F41 104.74%, #BB9A3C 106.89%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+        }
+
+        .subtext span{
+            font-size: 20px;
+            color: #322D2D;
+            width: 60px;
+        }
+
+        .shop-now {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: black;
+            background: linear-gradient(93.63deg, #CAA648 -0.61%, #CAA648 10.09%, #D5B147 25.19%, #E4C267 46.69%, #E2C065 78.94%, #DBB95E 90.77%, #D0AE52 98.29%, #C09F41 104.74%, #BB9A3C 106.89%);
+            text-decoration: none;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .right-section {
+            flex: 1;
+            text-align: center;
+        }
+
+        .right-section img {
+            max-width: 100%;
+            height: auto;
+        }
+        .mg-class{
+            align-items: bottom;
+            background: linear-gradient(93.63deg, #CAA648 -0.61%, #CAA648 10.09%, #D5B147 25.19%, #E4C267 46.69%, #E2C065 78.94%, #DBB95E 90.77%, #D0AE52 98.29%, #C09F41 104.74%, #BB9A3C 106.89%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="rating">
+                <img src="./assets/images/rating.png" alt="Product Image">
+            </div>
+            <h1>Achieve your highest self.</h1>
+            <div class="details">
+                <div class="detail">
+                    <span class="highlight">10x</span>
+                    <br>
+                    <span class="subtext">concentration</span>
+                </div>
+                <div class="detail">
+                    <span class="highlight">9</span>
+                    <br>
+                    <span class="subtext">powerful ingredients</span>
+                </div>
+                <div class="detail">
+                    <span class="highlight">1000</span><span class = "mg-class">mg</span>
+                    <br>
+                    <span class="subtext">of Adaptogens per dose</span>
+                </div>
+            </div>
+            <a href="#" class="shop-now">Shop Now →</a>
+        </div>
+        <div class="right-section">
+            <img src="./assets/images/image_rename.png" alt="Product Image">
+        </div>
+    </div>
+</body>
+
+</html>
